@@ -1,9 +1,10 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:untitled1/pages/login_page.dart';
 import 'package:untitled1/pages/signup_page.dart';
 
 void main() {
-  runApp(SignupPage());
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sign Up',
+      title: 'Sign In',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SignupPage(),
+      home: LoginPage(),
     );
   }
 }

@@ -13,7 +13,8 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   late APIService apiService;
   late CustomerModel model;
-  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool hidePassword = true;
   bool isApiCallProcess = false;
 
@@ -36,9 +37,10 @@ class _SignupPageState extends State<SignupPage> {
         title: Text("Sign Up"),
       ),
       body: ProgressHUD(
-        key: globalKey,
+        key: _globalKey,
         child: new Form(
           child: _formUI(),
+          key: _formKey,
         ),
         inAsyncCall: isApiCallProcess,
       ),
@@ -161,11 +163,11 @@ class _SignupPageState extends State<SignupPage> {
 
 
   bool validateAndSave() {
-    final form = globalKey.currentState;
-    if (form.validate()) {
-      form.save();
-      return true;
-    }
+    final form = _formKey.currentState;
+      if (form!.validate()) {
+        form.save();
+        return true;
+      }
     return false;
   }
 }
