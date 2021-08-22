@@ -3,4 +3,5 @@ class Config{
   static String sceret="cs_edc35911431856807030730e977dab82c6cbcb35";
   static String url ="https://azadessentials.com/wp-json/wc/v3/";
   static String customerUrl ="customers";
+  static String tokenUrl = "https://azadessentials.com/wp-json/jwt-auth/v1/token";
 }

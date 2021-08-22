@@ -172,10 +172,15 @@ class _SignupPageState extends State<SignupPage> {
 
   bool validateAndSave() {
     final form = _formKey.currentState;
+
     if (form!.validate()) {
       form.save();
       return true;
     }
+      if (form!.validate()) {
+        form.save();
+        return true;
+      }
     return false;
   }
 }
