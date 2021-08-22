@@ -120,9 +120,12 @@ class _LoginPageState extends State<LoginPage>
                             )
                           ),
                         ),
-                        FlatButton(
-                          onPressed: () => Icons.message,
-                          child:Text("Forgot Password",style: TextStyle(color: Colors.blue,fontStyle: FontStyle.italic)
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: FlatButton(
+                            onPressed: () => Icons.message,
+                            child:Text("Forgot Password",style: TextStyle(color: Colors.blue,fontStyle: FontStyle.italic)
+                            ),
                           ),
                         ),
                         SizedBox(height: 30),
@@ -154,7 +157,9 @@ class _LoginPageState extends State<LoginPage>
                           padding: EdgeInsets.symmetric(
                               vertical: 12, horizontal: 75
                           ),
-                          onPressed: () => Icons.message,
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('/SignUp');
+                          },
                             child:Text("Sign Up",style: TextStyle(color: Colors.white),
                             ),
                         color: Colors.redAccent,

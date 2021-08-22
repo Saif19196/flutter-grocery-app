@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/pages/login_page.dart';
 import 'package:untitled1/pages/signup_page.dart';
+import 'package:untitled1/utils/routeGenerator.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
@@ -13,6 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sign In',
+      onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: '/Login',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      // home: LoginPage(),
     );
   }
 }
