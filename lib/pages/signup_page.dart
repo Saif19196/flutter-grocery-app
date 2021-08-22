@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/api_service.dart';
 import 'package:untitled1/models/customer.dart';
@@ -13,7 +14,8 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   late APIService apiService;
   late CustomerModel model;
-  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool hidePassword = true;
   bool isApiCallProcess = false;
 
@@ -36,9 +38,10 @@ class _SignupPageState extends State<SignupPage> {
         title: Text("Sign Up"),
       ),
       body: ProgressHUD(
-        key: globalKey,
+        key: _globalKey,
         child: new Form(
           child: _formUI(),
+          key: _formKey,
         ),
         inAsyncCall: isApiCallProcess,
       ),
@@ -135,6 +138,13 @@ class _SignupPageState extends State<SignupPage> {
                           isApiCallProcess = false;
                         });
                         if (ret) {
+                          // Flushbar(
+                          //   message: 'Team added successfully',
+                          //   duration: Duration(seconds: 3),
+                          // ).show(context);
+                          //
+                          // Navigator.of(context).pop();
+
                           FormHelper.showMessage(context, "Azad Essential",
                             "Registration Successful", "Ok", () {
                               Navigator.of(context).pop();
@@ -161,8 +171,8 @@ class _SignupPageState extends State<SignupPage> {
 
 
   bool validateAndSave() {
-    final form = globalKey.currentState;
-    if (form.validate()) {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
       form.save();
       return true;
     }

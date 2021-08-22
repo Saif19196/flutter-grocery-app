@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/pages/signup_page.dart';
 
 void main() {
-  runApp(SignupPage());
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
