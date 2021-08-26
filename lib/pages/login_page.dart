@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage>
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String username = "";
   String password = "";
-  late APIService apiService;
+  APIService apiService;
 
   @override
     void initState(){
@@ -63,8 +63,8 @@ class _LoginPageState extends State<LoginPage>
                         SizedBox(height: 20),
                         new TextFormField(
                           keyboardType: TextInputType.emailAddress,
-                          onSaved: (input) => username = input!,
-                          validator: (input) => !input!.contains('@')? "Email Id should be vaild" : null,
+                          onSaved: (input) => username = input,
+                          validator: (input) => !input.contains('@')? "Email Id should be vaild" : null,
                           decoration: new InputDecoration(
                             hintText: "Email Address",
                             enabledBorder: UnderlineInputBorder(
@@ -87,8 +87,8 @@ class _LoginPageState extends State<LoginPage>
                         new TextFormField(
                           style: TextStyle(color: Theme.of(context).accentColor),
                           keyboardType: TextInputType.text,
-                          onSaved: (input) => username = input!,
-                          validator: (input) => input!.length < 3? "Password should be more than 3 character" : null,
+                          onSaved: (input) => username = input,
+                          validator: (input) => input.length < 3? "Password should be more than 3 character" : null,
                           obscureText: hidePassword,
                           decoration: new InputDecoration(
                             hintText: "Password",
@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage>
   }
   bool validateAndSave() {
     final form = _formKey.currentState;
-    if (form!.validate()) {
+    if (form.validate()) {
       form.save();
       return true;
     }

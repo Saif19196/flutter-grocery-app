@@ -8,9 +8,9 @@ class FormHelper {
         bool isTextArea = false,
         bool isNumberInput = false,
         obscureText: false,
-        Function? onValidate,
-        Widget? prefixIcon,
-        Widget? suffixIcon,
+        Function onValidate,
+        Widget prefixIcon,
+        Widget suffixIcon,
       }) {
     return TextFormField(
       initialValue: initialValue != null ? initialValue.toString() : "",
@@ -27,7 +27,7 @@ class FormHelper {
         return onChanged(value);
       },
       validator: (value) {
-        return onValidate!(value);
+        return onValidate(value);
       },
     );
   }
@@ -36,8 +36,8 @@ class FormHelper {
       BuildContext context,
       String hintText,
       String helperText, {
-        Widget? prefixIcon,
-        Widget? suffixIcon,
+        Widget prefixIcon,
+        Widget suffixIcon,
       }) {
     return InputDecoration(
       contentPadding: EdgeInsets.all(6),
@@ -74,7 +74,7 @@ class FormHelper {
   }
 
   static Widget saveButton(String buttonText, Function onTap,
-      {String? color, String? textColor, bool? fullWidth}) {
+      {String color, String textColor, bool fullWidth}) {
     return Container(
       height: 50.0,
       width: 150,

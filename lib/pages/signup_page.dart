@@ -12,8 +12,8 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  late APIService apiService;
-  late CustomerModel model;
+  APIService apiService;
+  CustomerModel model;
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool hidePassword = true;
@@ -173,11 +173,11 @@ class _SignupPageState extends State<SignupPage> {
   bool validateAndSave() {
     final form = _formKey.currentState;
 
-    if (form!.validate()) {
+    if (form.validate()) {
       form.save();
       return true;
     }
-      if (form!.validate()) {
+      if (form.validate()) {
         form.save();
         return true;
       }

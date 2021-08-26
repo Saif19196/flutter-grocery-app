@@ -9,9 +9,9 @@ class ProgressHUD extends StatelessWidget {
   //final Animation<Color> valueColor;
 
   ProgressHUD({
-    required Key key,
-    required this.child,
-    required this.inAsyncCall,
+    Key key,
+    this.child,
+    this.inAsyncCall,
     this.opacity = 0.3,
     this.color = Colors.grey,
     //this.valueColor = ,

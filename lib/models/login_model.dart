@@ -1,9 +1,9 @@
 class LoginResponseModel {
-  bool? success;
-  int? statucCode;
-  String? code;
-  String? message;
-  Data? data;
+  bool success;
+  int statucCode;
+  String code;
+  String message;
+  Data data;
 
   LoginResponseModel({
     this.success,
@@ -18,7 +18,7 @@ class LoginResponseModel {
     statucCode = json['statucCode'];
     code = json['code'];
     message = json['message'];
-    data =(json['data'] != null ? new Data.fromJson(json['data']): null)!;
+    data =(json['data'] != null ? new Data.fromJson(json['data']): null);
   }
 
   Map<String,dynamic>toJson()
@@ -31,20 +31,20 @@ class LoginResponseModel {
 
     if(this.data != null)
       {
-        data['data'] =this.data!.toJson();
+        data['data'] =this.data.toJson();
       }
     return data;
   }
 }
 
 class Data {
-  String? token;
-  int? id;
-  String? email;
-  String? nicename;
-  String? firstName;
-  String? lastName;
-  String? displayName;
+  String token;
+  int id;
+  String email;
+  String nicename;
+  String firstName;
+  String lastName;
+  String displayName;
 
   Data(
       {this.token,
